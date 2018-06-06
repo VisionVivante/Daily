@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+      <img src="" class="logo_img"></ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+<div *ngIf="myform">  
+  <form [formGroup]="myform" (ngSubmit)="doSignup()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>{{ 'NAME' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="account.username" name="username" formControlName="username" [readonly]=true></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password" formControlName="password"></ion-input>
+      </ion-item>
+      <p class="min_length">*Password must be minimum 6 characters.</p>
+      <div padding>
+        <button ion-button color="primary" block class="sign_btn" [disabled]="!myform.valid">{{ 'REGISTER' | translate }}</button>
+      </div>
+
+    </ion-list>
+  </form>
+</div>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <button ion-button menuToggle="left">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+     <ion-toolbar>
+      <ion-title (click)="goHome()">
+      <img src="" class="logo_img"></ion-title>
+    </ion-toolbar>
+    <ion-buttons right>
+    <button ion-button class="chat_btn" (click)="doChat()"></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-grid class="my-grid"> 
+  <ion-row justify-content-center align-items-center>
+    <ion-col col-12 justify-content-center class="title-class" >
+       <p>{{cateName}}</p>
+    </ion-col>
+    <ion-col col-12 class="col-setting" *ngIf="articles">
+    			<ion-list>
+				    <button ion-item *ngFor="let article of articles; let fst = first;" (click)="getSingleModule(article.id)">
+				          <ion-icon name="ios-arrow-forward" ios="ios-arrow-forward-outline" md="ios-arrow-forward-outline" item-end></ion-icon>
+				          {{ article.title }}
+				        </button>
+    			</ion-list>
+    </ion-col>
+</ion-row>
+</ion-grid>
+<ion-grid class="nextBackGrid"> 
+  <ion-row justify-content-center align-items-center>
+    <ion-col col-6>
+    	<div padding class="custom-welcome">
+    	    <button ion-button navPop>Back</button>
+		</div>
+	</ion-col>
+	<ion-col>
+		<div padding class="custom-welcome text_right">
+			<button ion-button (click)="getSingleFirstModule(id)">Next</button>
+		</div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
